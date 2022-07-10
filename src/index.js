@@ -1,17 +1,19 @@
+//Entry Point of the App
+//import is possible because of WebPack which does all the bundling
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client'; //for websites (React Native exists also)
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "tachyons";
+import CardList from "./CardList";
+import { robots } from "./robots";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <>
+     <CardList robots={robots} />
+    </>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
