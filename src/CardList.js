@@ -19,6 +19,8 @@ const CardList = ({robots}) => {
 
 export default CardList;
 
+
+
 /*
 Inline Variante
   return (
