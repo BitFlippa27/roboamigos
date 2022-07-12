@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'; //for websites (React Native exists also)
 import './index.css';
 import "tachyons";
-import App from "./App";
+import App from "../src/containers/App";
 import { robots } from "./robots";
 
 
