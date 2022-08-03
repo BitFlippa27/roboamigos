@@ -10,29 +10,31 @@ function App() {
 
   const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState("");
-  const [count, setCount] = useState(0);
-
+  const [filteredRobots, setFilteredRobots] = useState(robots);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
     .then(response => response.json())
-    .then(users => {setRobots(users)});
-    console.log(count)
-  },[count]); 
+    .then(users => setRobots(users));
+  },[]); 
     
+  useEffect(() => {
+    const searchResult = robots.filter(robot => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase())
+    });
+
+    setFilteredRobots(searchResult);
+  }, [robots, searchField])
 
   const onSearchChange = event => {
     setSearchField(event.target.value);
   }
 
-  const filteredRobots = robots.filter(robot => {
-    return robot.name.toLowerCase().includes(searchField.toLowerCase())
-  });
+  
     return !robots.length ? <h1>Loading</h1> :
     (
       <div className="tc">
         <h1 className="f1">RoboAmigos</h1>
-        <button onClick={() => setCount(count +1)}>Click misch</button>
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <ErrorBoundry>
