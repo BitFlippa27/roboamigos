@@ -22,25 +22,24 @@ function App() {
     });
   },[]); 
   */
-
+  
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const users = await response.json();
-      setRobots(users);
+      const robots = await response.json();
+      setRobots(robots);
     }
-    
+
     try {
       fetchUsers();
     } catch (err) {
       console.error(err);
     }
-  }, []);
+  }, []); //fetch only once at mount
     
   useEffect(() => {
-    const searchResult = robots.filter(robot => {
-      return robot.name.toLowerCase().includes(searchField.toLowerCase())
-    });
+    const searchResult = robots.filter(robot => 
+      robot.name.toLowerCase().includes(searchField.toLowerCase()));
 
     setFilteredRobots(searchResult);
   }, [robots, searchField])
