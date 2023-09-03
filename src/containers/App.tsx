@@ -1,40 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
+import { getData } from "../utils/data";
 import "../containers/App.css";
 
+export type Robot = {
+  id: string;
+  name: string;
+  email: string;
+} 
 
 function App() {
 
-  const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState("");
-  const [filteredRobots, setFilteredRobots] = useState(robots);
-  /*
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => 
-      response.json())
-    .then(users => {
-      console.log(users)
-      setRobots(users)
-    });
-  },[]); 
-  */
+  const [robots, setRobots] = useState<Robot[]>([]); 
+  const [filteredRobots, setFilteredRobots] = useState(robots); //robots is inferred from Generic above
   
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const robots = await response.json();
-      setRobots(robots);
+      const users = await getData<Robot[]>("https://jsonplaceholder.typicode.com/users");
+      setRobots(users);
     }
-
-    try {
-      fetchUsers();
-    } catch (err) {
-      console.error(err);
-    }
+    fetchUsers();
   }, []); //fetch only once at mount
     
   useEffect(() => {
@@ -44,7 +33,7 @@ function App() {
     setFilteredRobots(searchResult);
   }, [robots, searchField])
 
-  const onSearchChange = event => {
+  const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchField(event.target.value);
   }
   

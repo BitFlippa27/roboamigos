@@ -4,8 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'; //for websites (React Native exists also)
 import './index.css';
 import "tachyons";
-import App from "../src/containers/App";
-import { robots } from "./robots";
+import App from "./containers/App.tsx";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

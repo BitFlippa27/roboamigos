@@ -1,6 +1,14 @@
 import React from "react";
+import { Robot } from "../containers/App";
+
+type CardProps = {
+  robot: Robot;
+} 
+
 //we are destructuring the props right inside of the brackets
-const Card = ({name, email, id}) => {
+const Card = ({ robot }: CardProps) => {
+  const {id, name, email} = robot;
+  
   return (
     <div className="bg-gray dib br4 pa3 ma2 grow bw3 shadow-5 tc card">
       <img src={`https://robohash.org/${id}?200x200`} alt="robots"/>
