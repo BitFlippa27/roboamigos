@@ -29,7 +29,7 @@ function App() {
       const robots = await response.json();
       setRobots(robots);
     }
-
+    
     try {
       fetchUsers();
     } catch (err) {

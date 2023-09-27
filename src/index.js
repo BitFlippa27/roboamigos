@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/client'; //for websites (React Native exists als
 import './index.css';
 import "tachyons";
 import App from "../src/containers/App";
-import { robots } from "./robots";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
