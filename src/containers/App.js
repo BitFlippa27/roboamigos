@@ -52,7 +52,7 @@ function App() {
     (
       <div className="tc">
         <h1 className="f1">Roboamigos</h1>
-        <SearchBox searchChange={onSearchChange}  />
+        <SearchBox searchChange={onSearchChange} />
         <br /> 
         <Scroll>
           <ErrorBoundry>
