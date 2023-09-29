@@ -1,16 +1,14 @@
 {
-  "main.css": "/roboamigos/static/css/main.dc9649b5.chunk.css",
-  "main.js": "/roboamigos/static/js/main.c7145033.chunk.js",
-  "main.js.map": "/roboamigos/static/js/main.c7145033.chunk.js.map",
-  "static/css/1.2eae6c89.chunk.css": "/roboamigos/static/css/1.2eae6c89.chunk.css",
-  "static/js/1.d2b2cd7e.chunk.js": "/roboamigos/static/js/1.d2b2cd7e.chunk.js",
-  "static/js/1.d2b2cd7e.chunk.js.map": "/roboamigos/static/js/1.d2b2cd7e.chunk.js.map",
-  "runtime~main.js": "/roboamigos/static/js/runtime~main.30aa26c9.js",
-  "runtime~main.js.map": "/roboamigos/static/js/runtime~main.30aa26c9.js.map",
-  "static/media/App.css": "/roboamigos/static/media/SEGA.12a3db8b.woff",
-  "static/css/1.2eae6c89.chunk.css.map": "/roboamigos/static/css/1.2eae6c89.chunk.css.map",
-  "static/css/main.dc9649b5.chunk.css.map": "/roboamigos/static/css/main.dc9649b5.chunk.css.map",
-  "index.html": "/roboamigos/index.html",
-  "precache-manifest.78d56f2127b4aba5a62011e0e5d0b498.js": "/roboamigos/precache-manifest.78d56f2127b4aba5a62011e0e5d0b498.js",
-  "service-worker.js": "/roboamigos/service-worker.js"
+  "files": {
+    "main.css": "/roboamigos/static/css/main.de535ccf.css",
+    "main.js": "/roboamigos/static/js/main.da4e3f76.js",
+    "static/media/SEGA.woff": "/roboamigos/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
+    "index.html": "/roboamigos/index.html",
+    "main.de535ccf.css.map": "/roboamigos/static/css/main.de535ccf.css.map",
+    "main.da4e3f76.js.map": "/roboamigos/static/js/main.da4e3f76.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de535ccf.css",
+    "static/js/main.da4e3f76.js"
+  ]
 }
