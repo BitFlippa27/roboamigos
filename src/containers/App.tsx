@@ -21,11 +21,10 @@ function App() {
   
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const robots = await response.json();
-      setRobots(robots);
+      const users = await getData<Robots[]>("https://jsonplaceholder.typicode.com/users")
+      setRobots(users);
     }
-    
+      
     try {
       fetchUsers();
     } catch (err) {
