@@ -7,7 +7,7 @@ import { getData } from "../utils/data.utils";
 
 import "../containers/App.css";
 
-export type Robots = {
+export type Robot = {
   id: string;
   name: string;
   email: string;
@@ -16,12 +16,12 @@ export type Robots = {
 
 function App() {
   const [searchField, setSearchField] = useState("");
-  const [robots, setRobots] = useState<Robots[]>([]);
+  const [robots, setRobots] = useState<Robot[]>([]);
   const [filteredRobots, setFilteredRobots] = useState(robots);
   
   useEffect(() => {
     const fetchUsers = async () => {
-      const users = await getData<Robots[]>("https://jsonplaceholder.typicode.com/users")
+      const users = await getData<Robot[]>("https://jsonplaceholder.typicode.com/users")
       setRobots(users);
     }
       
