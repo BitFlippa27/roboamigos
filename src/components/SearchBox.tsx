@@ -1,6 +1,11 @@
-import React from "react";
+import { ChangeEvent } from "react";
 
-const SearchBox = ({ searchField, searchChange }) => {
+
+type SearchBoxProps = {
+  searchChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchBox = ({ searchChange }: SearchBoxProps)  => {
   return (
     <div>
       <input
@@ -8,7 +13,7 @@ const SearchBox = ({ searchField, searchChange }) => {
         placeholder="search robots" 
         className="pa2 ba b--red br2 bg-lightest-gray"
         onChange={searchChange}
-        />
+      />
     </div>
   );
 } 

@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
+import { getData } from "../utils/data.utils";
+
 import "../containers/App.css";
+
+export type Robots = {
+  id: string;
+  name: string;
+  email: string;
+}
 
 
 function App() {
-
-  const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState("");
+  const [robots, setRobots] = useState<Robots[]>([]);
   const [filteredRobots, setFilteredRobots] = useState(robots);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => response.json())
-    .then(users => setRobots(users));
+    const fetchUsers = async () => {
+      const users = await getData<Robots[]>("https://jsonplaceholder.typicode.com/users");
+      setRobots(users);
+    }
+
+    fetchUsers();
   },[]); 
     
   useEffect(() => {
@@ -26,7 +36,7 @@ function App() {
     setFilteredRobots(searchResult);
   }, [robots, searchField])
 
-  const onSearchChange = event => {
+  const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchField(event.target.value);
   }
 
